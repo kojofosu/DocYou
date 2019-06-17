@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <Button
+        android:id="@+id/add_new_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/action_save"
+        android:layout_alignParentEnd="true"
+        android:background="@color/transparent"
+        android:onClick="onClickSave"/>
+    <Button
+        android:id="@+id/add_new_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/action_cancel"
+        android:background="@color/transparent"
+        android:onClick="onClickCancel" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/action_delete"
+        android:onClick="onClickDelete"
+        android:background="@color/transparent"
+        android:layout_toStartOf="@id/add_new_save"/>
+
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:weightSum="3">-->
+        <!--<ImageButton-->
+            <!--android:id="@+id/ibCamera"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="55dp"-->
+            <!--android:src="@mipmap/ic_menu_camera"-->
+            <!--android:onClick="openCamera"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@color/searchbar"-->
+            <!--android:backgroundTint="@color/colorPrimary"/>-->
+        <!--<ImageButton-->
+            <!--android:id="@+id/ibMicrophone"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="55dp"-->
+            <!--android:src="@drawable/ic_microphone"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@color/searchbar"-->
+            <!--android:backgroundTint="@color/colorAccent" />-->
+
+        <!--<ImageButton-->
+            <!--android:id="@+id/ibGallery"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="55dp"-->
+            <!--android:src="@mipmap/ic_menu_gallery"-->
+            <!--android:onClick="openGallery"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@color/searchbar"-->
+            <!--android:backgroundTint="@color/colorPrimary"/>-->
+
+    <!--</LinearLayout>-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:isScrollContainer="false"
+        android:layout_marginBottom="60dp"
+        android:layout_marginTop="50dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="5">
+            <EditText
+                android:layout_weight="3"
+                android:id="@+id/etTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:hint="@string/hint_title"
+                android:textSize="30sp"
+                android:singleLine="true"
+                android:textColor="@color/gray"/>
+
+            <EditText
+                android:isScrollContainer="true"
+                android:layout_weight="1"
+                android:id="@+id/etContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:gravity="top"
+                android:hint="@string/hint_content"
+                android:enabled="true"
+                android:background="@android:color/transparent"
+                android:textColorLink="@color/linkie"
+                android:contextClickable="true"
+                android:keepScreenOn="true"
+                android:linksClickable="true"
+                android:autoLink="all"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+    </ScrollView>
+    </RelativeLayout>
+    <android.support.design.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:fabAlignmentMode="center"
+        android:backgroundTint="@color/colorPrimary"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+        android:elevation="30dp"
+        app:hideOnScroll="true"
+        app:menu="@menu/bottom_appbar_menu">
+    </android.support.design.bottomappbar.BottomAppBar>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/add_new_material_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorAccent"
+        android:src="@drawable/ic_microphone"
+        app:layout_anchor="@id/bottom_app_bar"/>
+</android.support.design.widget.CoordinatorLayout>

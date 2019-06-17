@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#363b56</color>
+    <color name="colorPrimaryDark">#363b56</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="searchbar">#424a71</color>
+    <color name="gray">#77000000</color>
+    <color name="green">#4a86ac</color>
+    <color name="linkie">#001eff</color>
+    <color name="white">#ffffff</color>
+</resources>

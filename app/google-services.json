@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "440308183331",
+    "firebase_url": "https://docyou-71802.firebaseio.com",
+    "project_id": "docyou-71802",
+    "storage_bucket": "docyou-71802.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440308183331:android:2f035857e5e77733",
+        "android_client_info": {
+          "package_name": "com.edue.docyou"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440308183331-jcksmpuhtdrhagfbf6sr9op29ov4frdn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMSl5tEzjolnY9EJko_HBQ0GnjrcxWcZ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440308183331-jcksmpuhtdrhagfbf6sr9op29ov4frdn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

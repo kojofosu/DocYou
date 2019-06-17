@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="15dp">
+    <TextView
+        android:id="@+id/list_note_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:contentDescription="Title"
+        android:text="~No Title~"
+        android:paddingTop="10dp"
+        android:ellipsize="marquee"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="5">
+        <TextView
+            android:id="@+id/list_note_content"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:lines="3"
+            android:maxLines="3"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_weight="1"
+            android:text="~No Content~"
+            android:contentDescription="Content"
+            android:ellipsize="end"
+            android:paddingBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/list_note_date"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_gravity="end"
+            android:layout_weight="4"
+            android:paddingStart="5dp"/>
+    </LinearLayout>
+
+</LinearLayout>
