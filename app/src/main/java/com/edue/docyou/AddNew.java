@@ -7,8 +7,12 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.speech.RecognizerIntent;
 import android.support.annotation.Nullable;
+import android.support.design.bottomappbar.BottomAppBar;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -26,6 +30,8 @@ import static com.edue.docyou.Camera.cameraData;
 public class AddNew extends AppCompatActivity{
     private EditText txtSpeechInput;
     private ImageButton btnSpeak;
+    BottomAppBar addNewBottomAppBar;
+    FloatingActionButton addNewFAB;
     private final int REQ_CODE_SPEECH_INPUT = 100;
 
     private static final int SELECTED_PICTURE=1;
@@ -41,6 +47,8 @@ public class AddNew extends AppCompatActivity{
 
         mEtTitle = (EditText) findViewById(R.id.etTitle);
         mEtContent = (EditText) findViewById(R.id.etContent);
+        addNewBottomAppBar = findViewById(R.id.add_new_bottom_app_bar);
+        addNewFAB = findViewById(R.id.add_new_material_fab);
 
         mNoteFileName = getIntent().getStringExtra("NOTE_FILE");
         if(mNoteFileName != null && !mNoteFileName.isEmpty()){
@@ -64,7 +72,20 @@ public class AddNew extends AppCompatActivity{
 //                promptSpeechInput();
 //            }
 //        });
+
+        bottomAppBar();
     }
+
+    private void bottomAppBar() {
+        addNewBottomAppBar.inflateMenu(R.menu.bottom_appbar_menu);
+        addNewBottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                return true;
+            }
+        });
+    }
+
     private void promptSpeechInput() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,

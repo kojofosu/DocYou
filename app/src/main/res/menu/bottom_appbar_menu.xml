@@ -5,12 +5,12 @@
     <item
         android:id="@+id/action_open_gallery"
         android:title="@string/action_settings"
-        android:icon="@mipmap/ic_menu_gallery"
+        android:icon="@drawable/ic_menu_gallery"
         app:showAsAction="always" />
     <item
         android:id="@+id/action_open_camera"
         android:title="Delete"
-        android:icon="@mipmap/ic_menu_camera"
+        android:icon="@drawable/ic_menu_camera"
         app:showAsAction="always"/>
 
 </menu>
