@@ -34,6 +34,7 @@
                 android:onClick="onClickDelete"
                 android:background="@color/transparent"
                 android:layout_toStartOf="@id/add_new_save"/>
+
         </LinearLayout>
 
         <LinearLayout
@@ -85,11 +86,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     app:fabAlignmentMode="end"
-                    android:backgroundTint="@color/colorPrimary"
+                    android:backgroundTint="@color/searchbar"
                     style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
                     android:elevation="30dp"
                     app:hideOnScroll="true"
-                    app:menu="@menu/bottom_appbar_menu">
+                    app:menu="@menu/bottom_appbar_menu"
+                    app:navigationIcon="@drawable/ic_more_vert_white_24dp">
                 </android.support.design.bottomappbar.BottomAppBar>
 
                 <android.support.design.widget.FloatingActionButton
@@ -97,12 +99,46 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorPrimary"
-                    android:src="@drawable/ic_mic_black_24dp"
+                    android:src="@drawable/ic_check_black_24dp"
                     app:layout_anchor="@id/add_new_bottom_app_bar"/>
 
             </android.support.design.widget.CoordinatorLayout>
         </LinearLayout>
     <!--</ScrollView>-->
     </LinearLayout>
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:weightSum="3">-->
+    <!--<ImageButton-->
+    <!--android:id="@+id/ibCamera"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="55dp"-->
+    <!--android:src="@mipmap/ic_menu_camera"-->
+    <!--android:onClick="openCamera"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@color/searchbar"-->
+    <!--android:backgroundTint="@color/colorPrimary"/>-->
+    <!--<ImageButton-->
+    <!--android:id="@+id/ibMicrophone"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="55dp"-->
+    <!--android:src="@drawable/ic_microphone"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@color/searchbar"-->
+    <!--android:backgroundTint="@color/colorAccent" />-->
 
+    <!--<ImageButton-->
+    <!--android:id="@+id/ibGallery"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="55dp"-->
+    <!--android:src="@mipmap/ic_menu_gallery"-->
+    <!--android:onClick="openGallery"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@color/searchbar"-->
+    <!--android:backgroundTint="@color/colorPrimary"/>-->
+
+    <!--</LinearLayout>-->
 </android.support.design.widget.CoordinatorLayout>

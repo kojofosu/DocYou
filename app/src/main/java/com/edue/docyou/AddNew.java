@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -50,6 +51,8 @@ public class AddNew extends AppCompatActivity{
         addNewBottomAppBar = findViewById(R.id.add_new_bottom_app_bar);
         addNewFAB = findViewById(R.id.add_new_material_fab);
 
+
+
         mNoteFileName = getIntent().getStringExtra("NOTE_FILE");
         if(mNoteFileName != null && !mNoteFileName.isEmpty()){
             mLoadedNote = Utilities.getNoteByName(this, mNoteFileName);
@@ -77,13 +80,55 @@ public class AddNew extends AppCompatActivity{
     }
 
     private void bottomAppBar() {
+        addNewFAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Save
+                Note note;
+
+                if(mLoadedNote == null){
+                    note = new Note(System.currentTimeMillis(), mEtTitle.getText().toString()
+                            , mEtContent.getText().toString());
+                }
+                else {
+
+                    //The "System.currentTimeMillis()" will set the current time and date after saving but will create a new docyou
+                    // The "mLoadedNote.getDateTime()" will use the old date and time even after saving
+                    note = new Note(mLoadedNote.getDateTime(), mEtTitle.getText().toString()
+                            , mEtContent.getText().toString());
+                }
+
+                if(Utilities.saveNote(getApplicationContext(), note)) {
+                    Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Error!", Toast.LENGTH_SHORT).show();
+                }
+                finish();
+            }
+        });
+
         addNewBottomAppBar.inflateMenu(R.menu.bottom_appbar_menu);
         addNewBottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
+                int id = menuItem.getItemId();
+
+                if (id == R.id.action_open_camera){
+                    //Open camera
+                    //Intent intent = new Intent("android.media.action.IMAGE_CAPTURE"); or...
+                    Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(intent, cameraData);
+                }
+                if (id == R.id.action_open_gallery){
+                    //Open gallery
+                    Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(i, SELECTED_PICTURE);
+                }
                 return true;
             }
         });
+
     }
 
     private void promptSpeechInput() {
