@@ -73,7 +73,7 @@ public class DeleteBottomSheetFragment extends BottomSheetDialogFragment {
         cancelDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                dismiss();
             }
         });
         return view;
