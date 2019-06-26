@@ -54,7 +54,7 @@ public class AddNew extends AppCompatActivity{
         mEtTitle = (EditText) findViewById(R.id.etTitle);
         mEtContent = (EditText) findViewById(R.id.etContent);
         addNewBottomAppBar = findViewById(R.id.add_new_bottom_app_bar);
-        addNewFAB = findViewById(R.id.add_new_material_fab);
+        addNewFAB = findViewById(R.id.save_material_fab);
 
 
         NOTE_FILE = getIntent().getStringExtra("NOTE_FILE");

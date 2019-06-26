@@ -62,11 +62,15 @@ public class DeleteBottomSheetFragment extends BottomSheetDialogFragment {
         confirmDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Utilities.deleteNote(Objects.requireNonNull(getContext()), mLoadedNote.getDateTime() + Utilities.FILE_EXTENSION);
+                if (mLoadedNote == null) {
+                    Objects.requireNonNull(getActivity()).finish();
+                } else {
+                    Utilities.deleteNote(Objects.requireNonNull(getContext()), mLoadedNote.getDateTime() + Utilities.FILE_EXTENSION);
 
-                Toast.makeText( getContext(), /*mEtTitle.getText().toString()+ */ "Note deleted", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), /*mEtTitle.getText().toString()+ */ "Note deleted", Toast.LENGTH_SHORT).show();
 
-                Objects.requireNonNull(getActivity()).finish();
+                    Objects.requireNonNull(getActivity()).finish();
+                }
             }
         });
 
