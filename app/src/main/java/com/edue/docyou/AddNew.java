@@ -40,7 +40,12 @@ public class AddNew extends AppCompatActivity{
     private EditText mEtContent;
 
     private String mNoteFileName;
-    private Note mLoadedNote;
+    Note mLoadedNote;
+
+    String NOTE_FILE;
+
+    DeleteBottomSheetFragment deleteBottomSheetFragment;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +57,8 @@ public class AddNew extends AppCompatActivity{
         addNewFAB = findViewById(R.id.add_new_material_fab);
 
 
-
-        mNoteFileName = getIntent().getStringExtra("NOTE_FILE");
+        NOTE_FILE = getIntent().getStringExtra("NOTE_FILE");
+        mNoteFileName = NOTE_FILE;
         if(mNoteFileName != null && !mNoteFileName.isEmpty()){
             mLoadedNote = Utilities.getNoteByName(this, mNoteFileName);
 
@@ -124,6 +129,16 @@ public class AddNew extends AppCompatActivity{
                     //Open gallery
                     Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     startActivityForResult(i, SELECTED_PICTURE);
+                }
+                if (id == R.id.action_delete){
+                    //This opens the bottom sheet fragment for the delete option
+                    Bundle data = new Bundle();//create bundle instance
+                    data.putString("NOTE_FILE_2", NOTE_FILE);//put string to pass with a key value
+
+                    deleteBottomSheetFragment = DeleteBottomSheetFragment.newInstance();
+                    deleteBottomSheetFragment.show(getSupportFragmentManager(), deleteBottomSheetFragment.getTag());
+
+                    deleteBottomSheetFragment.setArguments(data);//Set bundle data to fragment
                 }
                 return true;
             }
@@ -235,6 +250,7 @@ public class AddNew extends AppCompatActivity{
         finish();
     }
 
+    //Delete
     public void onClickDelete (View view){
         if (mLoadedNote == null){
             finish();

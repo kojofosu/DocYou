@@ -5,19 +5,19 @@
     <item
         android:id="@+id/action_delete"
         android:title="Delete"
+        android:icon="@drawable/ic_trash"
         app:showAsAction="ifRoom"
-        android:icon="@android:drawable/ic_delete"
         android:orderInCategory="1"/>
     <item
         android:id="@+id/action_open_gallery"
         android:title="Open Gallery"
-        android:icon="@drawable/ic_menu_gallery"
+        android:icon="@drawable/ic_attach"
         app:showAsAction="ifRoom"
         android:orderInCategory="2"/>
     <item
         android:id="@+id/action_open_camera"
         android:title="Open Camera"
-        android:icon="@drawable/ic_menu_camera"
+        android:icon="@drawable/ic_photo_camera_white"
         app:showAsAction="ifRoom"
         android:orderInCategory="3"/>
 

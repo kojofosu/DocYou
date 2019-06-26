@@ -99,6 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colorPrimary"
+                    android:tintMode="src_atop"
                     android:src="@drawable/ic_check_black_24dp"
                     app:layout_anchor="@id/add_new_bottom_app_bar"/>
 

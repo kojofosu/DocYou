@@ -28,9 +28,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_more_vert_white_24dp" />
-                            <entry key="sourceFile" value="C:\Users\Fosu" />
+                            <entry key="outputName" value="ic_trash" />
+                            <entry key="sourceFile" value="C:\Users\Fosu\Downloads\trash.svg" />
                           </map>
                         </option>
                       </PersistentState>
