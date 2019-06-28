@@ -2,23 +2,29 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item
-        android:id="@+id/action_delete"
-        android:title="Delete"
-        android:icon="@drawable/ic_trash"
-        app:showAsAction="ifRoom"
-        android:orderInCategory="1"/>
+
     <item
         android:id="@+id/action_open_gallery"
         android:title="Open Gallery"
         android:icon="@drawable/ic_attach"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:orderInCategory="2"/>
     <item
         android:id="@+id/action_open_camera"
         android:title="Open Camera"
         android:icon="@drawable/ic_photo_camera_white"
-        app:showAsAction="ifRoom"
+        app:showAsAction="always"
         android:orderInCategory="3"/>
-
+    <item
+        android:id="@+id/action_open_mic"
+        android:title="Microphone"
+        android:icon="@drawable/ic_microphone"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="4"/>
+    <item
+        android:id="@+id/action_delete"
+        android:title="Delete"
+        android:icon="@drawable/ic_trash"
+        app:showAsAction="never"
+        android:orderInCategory="1"/>
 </menu>

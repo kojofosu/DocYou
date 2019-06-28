@@ -9,7 +9,9 @@
     <item
         android:id="@+id/action_delete"
         android:title="Delete"
-        android:icon="@mipmap/ic_menu_send"/>
+        android:icon="@drawable/ic_trash"
+        app:showAsAction="never"
+        android:orderInCategory="1"/>
   <!--
     <item
         android:id="@+id/action_search"

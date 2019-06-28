@@ -12,6 +12,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -43,6 +45,7 @@ public class AddNew extends AppCompatActivity{
     Note mLoadedNote;
 
     String NOTE_FILE;
+    ImageButton prev;
 
     DeleteBottomSheetFragment deleteBottomSheetFragment;
 
@@ -55,6 +58,7 @@ public class AddNew extends AppCompatActivity{
         mEtContent = (EditText) findViewById(R.id.etContent);
         addNewBottomAppBar = findViewById(R.id.add_new_bottom_app_bar);
         addNewFAB = findViewById(R.id.save_material_fab);
+        prev = findViewById(R.id.prev);
 
 
         NOTE_FILE = getIntent().getStringExtra("NOTE_FILE");
@@ -80,6 +84,13 @@ public class AddNew extends AppCompatActivity{
 //                promptSpeechInput();
 //            }
 //        });
+
+        prev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         bottomAppBar();
     }
@@ -144,6 +155,62 @@ public class AddNew extends AppCompatActivity{
             }
         });
 
+        setSupportActionBar(addNewBottomAppBar);
+//        addNewBottomAppBar.setNavigationOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+////                addNewBottomAppBar.inflateMenu(R.menu.menu_main);
+//                openOptionsMenu();
+//                Toast.makeText(AddNew.this, "Yipee", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.bottom_appbar_menu, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id2 = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id2 == R.id.action_open_camera){
+            //Open camera
+            //Intent intent = new Intent("android.media.action.IMAGE_CAPTURE"); or...
+            Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(intent, cameraData);
+        }
+        if (id2 == R.id.action_open_gallery){
+            //Open gallery
+            Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(i, SELECTED_PICTURE);
+        }
+        if (id2 == R.id.action_delete){
+            //This opens the bottom sheet fragment for the delete option
+            Bundle data = new Bundle();//create bundle instance
+            data.putString("NOTE_FILE_2", NOTE_FILE);//put string to pass with a key value
+
+            deleteBottomSheetFragment = DeleteBottomSheetFragment.newInstance();
+            deleteBottomSheetFragment.show(getSupportFragmentManager(), deleteBottomSheetFragment.getTag());
+
+            deleteBottomSheetFragment.setArguments(data);//Set bundle data to fragment
+        }
+        if (id2 == R.id.action_open_mic){
+            //open speech input intent
+            promptSpeechInput();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void openOptionsMenu() {
+        super.openOptionsMenu();
     }
 
     private void promptSpeechInput() {

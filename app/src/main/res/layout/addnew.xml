@@ -12,35 +12,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <Button
-                android:id="@+id/add_new_save"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/action_save"
-                android:layout_alignParentEnd="true"
+            <ImageButton
+                android:id="@+id/prev"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_previous"
                 android:background="@color/transparent"
-                android:onClick="onClickSave"/>
-            <Button
-                android:id="@+id/add_new_cancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/action_cancel"
-                android:background="@color/transparent"
-                android:onClick="onClickCancel" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/action_delete"
-                android:onClick="onClickDelete"
-                android:background="@color/transparent"
-                android:layout_toStartOf="@id/add_new_save"/>
+                android:scaleType="fitXY"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"/>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
             <EditText
                 android:id="@+id/etTitle"
                 android:layout_width="match_parent"
@@ -50,7 +31,39 @@
                 android:hint="@string/hint_title"
                 android:textSize="30sp"
                 android:singleLine="true"
-                android:textColor="@color/gray"/>
+                android:textColor="@color/gray"
+                android:background="@color/transparent"
+                android:layout_gravity="center_vertical"/>
+            <!--<Button-->
+                <!--android:id="@+id/add_new_save"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/action_save"-->
+                <!--android:layout_alignParentEnd="true"-->
+                <!--android:background="@color/transparent"-->
+                <!--android:onClick="onClickSave"/>-->
+            <!--<Button-->
+                <!--android:id="@+id/add_new_cancel"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/action_cancel"-->
+                <!--android:background="@color/transparent"-->
+                <!--android:onClick="onClickCancel" />-->
+            <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/action_delete"-->
+                <!--android:onClick="onClickDelete"-->
+                <!--android:background="@color/transparent"-->
+                <!--android:layout_toStartOf="@id/add_new_save"/>-->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
 
             <android.support.design.widget.CoordinatorLayout
                 android:layout_width="match_parent"
@@ -66,6 +79,7 @@
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
                         android:paddingBottom="100dp"
+                        android:paddingTop="20dp"
                         android:gravity="top"
                         android:hint="@string/hint_content"
                         android:enabled="true"
@@ -85,13 +99,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
-                    app:fabAlignmentMode="end"
+                    app:fabAlignmentMode="center"
                     android:backgroundTint="@color/searchbar"
                     style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
                     android:elevation="30dp"
                     app:hideOnScroll="true"
-                    app:menu="@menu/bottom_appbar_menu"
-                    app:navigationIcon="@drawable/ic_more_vert_white_24dp">
+                    app:menu="@menu/bottom_appbar_menu">
                 </android.support.design.bottomappbar.BottomAppBar>
 
                 <android.support.design.widget.FloatingActionButton
