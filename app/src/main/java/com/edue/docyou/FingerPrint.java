@@ -7,9 +7,13 @@ import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
 import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyProperties;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.annotation.Nullable;
+
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+//import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,11 +32,14 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 
+import static android.content.Context.FINGERPRINT_SERVICE;
+import static android.content.Context.KEYGUARD_SERVICE;
+
 /**
  * Created by Fosu on 9/16/2017.
  */
 
-public class FingerPrint extends AppCompatActivity{
+public class FingerPrint extends AppCompatActivity {
     private KeyStore keyStore;
     private static final String KEY_NAME = "EDUE";
     private Cipher cipher;
