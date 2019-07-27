@@ -90,7 +90,8 @@
                         android:linksClickable="true"
                         android:autoLink="all"
                         android:textSize="20sp"
-                        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+                    </EditText>
 
                 </androidx.core.widget.NestedScrollView>
 

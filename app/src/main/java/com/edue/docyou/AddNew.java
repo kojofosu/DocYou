@@ -3,6 +3,11 @@ package com.edue.docyou;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.speech.RecognizerIntent;
@@ -12,6 +17,9 @@ import android.speech.RecognizerIntent;
 //import com.google.android.material.app.AlertDialog;
 //import android.support.v7.app.AppCompatActivity;
 //import android.support.v7.widget.Toolbar;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,6 +27,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -29,6 +38,8 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -48,7 +59,6 @@ public class AddNew extends AppCompatActivity {
     private static final int SELECTED_PICTURE=1;
     private EditText mEtTitle;
     private EditText mEtContent;
-
     private String mNoteFileName;
     Note mLoadedNote;
 
@@ -67,7 +77,6 @@ public class AddNew extends AppCompatActivity {
         addNewBottomAppBar = findViewById(R.id.add_new_bottom_app_bar);
         addNewFAB = findViewById(R.id.save_material_fab);
         prev = findViewById(R.id.prev);
-
 
         NOTE_FILE = getIntent().getStringExtra("NOTE_FILE");
         mNoteFileName = NOTE_FILE;
@@ -245,21 +254,30 @@ public class AddNew extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode) {
-            case REQ_CODE_SPEECH_INPUT: {
-                if (resultCode == RESULT_OK && null != data) {
+        if (requestCode == REQ_CODE_SPEECH_INPUT) {
+            if (resultCode == RESULT_OK && null != data) {
 
-                    ArrayList<String> result = data
-                            .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    txtSpeechInput.append(result.get(0)+" ");
+                ArrayList<String> result = data
+                        .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                txtSpeechInput.append(result.get(0) + " ");
 
-
-                }
-
-                break;
 
             }
+        }
+        if (requestCode == SELECTED_PICTURE){
+            if (resultCode == RESULT_OK && data != null){
+                Toast.makeText(this, "Image Appear!!!", Toast.LENGTH_SHORT).show();
 
+                try {
+                    final Uri imageUri = data.getData();
+                    final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                    final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                    //                    image_view.setImageBitmap(selectedImage);
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
