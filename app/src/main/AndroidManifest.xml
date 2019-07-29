@@ -11,9 +11,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/newdocyou"
+        android:icon="@drawable/docyou"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/newdocyou"
+        android:roundIcon="@drawable/docyou"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".SplashScreen">
