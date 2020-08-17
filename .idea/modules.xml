@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DocYou.iml" filepath="$PROJECT_DIR$/DocYou.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DocYou.iml" filepath="$PROJECT_DIR$/DocYou.iml" group="DocYou" />
+      <module fileurl="file://$PROJECT_DIR$/liuzhenlinSwipeToDeleteLib/SlidingItemMenuRecyclerView-master/SlidingItemMenuRecyclerView-master.iml" filepath="$PROJECT_DIR$/liuzhenlinSwipeToDeleteLib/SlidingItemMenuRecyclerView-master/SlidingItemMenuRecyclerView-master.iml" group="DocYou/liuzhenlinSwipeToDeleteLib/SlidingItemMenuRecyclerView-master" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="DocYou/app" />
+      <module fileurl="file://$PROJECT_DIR$/liuzhenlinSwipeToDeleteLib/liuzhenlinSwipeToDeleteLib.iml" filepath="$PROJECT_DIR$/liuzhenlinSwipeToDeleteLib/liuzhenlinSwipeToDeleteLib.iml" group="DocYou/liuzhenlinSwipeToDeleteLib" />
     </modules>
   </component>
 </project>
