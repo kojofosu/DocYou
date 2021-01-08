@@ -18,6 +18,8 @@ import androidx.core.app.ActivityCompat;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
+
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -34,6 +36,8 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 
+import render.animations.Render;
+
 
 /**
  * Created by Fosu on 9/16/2017.
@@ -45,11 +49,16 @@ public class FingerPrint extends AppCompatActivity {
     private static final String KEY_NAME = "EDUE";
     private Cipher cipher;
 
+    LottieAnimationView lottieAnimationView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fingerprint);
+        lottieAnimationView = findViewById(R.id.fingerprint_animationView);
+
+        //init render animations for textView
+        Render render = new Render(FingerPrint.this);
 
         //If you've set your app's minSdkVersion to anything lower than 23, then you'll need to verify that the device is running Marshmallow and above
         //before executing any fingerprint related code
@@ -94,7 +103,7 @@ public class FingerPrint extends AppCompatActivity {
 
                     //Here, we are referencing  the FingerprintHandler class that we will create in the next section.
                     //This class will be responsible for starting the authentication process (via te startAuth method) and processing the authentication process events
-                    FingerprintHandler handler = new FingerprintHandler(this);
+                    FingerprintHandler handler = new FingerprintHandler(this, textView);
                     handler.startAuthentication(fingerprintManager, cryptoObject);
                 }
             }

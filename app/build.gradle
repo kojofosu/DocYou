@@ -34,6 +34,11 @@ dependencies {
     testImplementation 'junit:junit:4.13.1'
     //Swipe to delete lib
 //    implementation project(':liuzhenlinSwipeToDeleteLib:SlidingItemMenuRecyclerView-master')
+
+    //lottie files
+    implementation "com.airbnb.android:lottie:3.6.0"
+    //item animations
+    implementation 'com.github.gayanvoice:android-animations:1.0.2'
 }
 
 

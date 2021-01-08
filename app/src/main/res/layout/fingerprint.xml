@@ -1,24 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark">
 
-    <ImageView
-        android:contentDescription="Fingerprint"
-        android:id="@+id/fingerprint"
-        android:layout_width="150dp"
-        android:layout_height="200dp"
-        android:src="@mipmap/fingerprinty"
+<!--    <ImageView-->
+<!--        android:contentDescription="Fingerprint"-->
+<!--        android:id="@+id/fingerprint"-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:src="@mipmap/fingerprinty"-->
+<!--        android:layout_centerInParent="true"-->
+<!--        android:background="@color/colorPrimaryDark"-->
+<!--        />-->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/fingerprint_animationView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         android:layout_centerInParent="true"
-        android:background="@color/colorPrimaryDark"
-        />
+        app:lottie_rawRes="@raw/touchid"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_speed="2.0"
+        android:layout_marginBottom="100dp"/>
+
     <TextView
         android:id="@+id/fingerprint_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/fingerprint"
-        android:text="Kindly place your finger on your device's scanner to verify your identity"
+        android:layout_below="@id/fingerprint_animationView"
+        android:text="Verify Fingerprint"
+        android:layout_centerHorizontal="true"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:gravity="center_horizontal"/>
