@@ -26,9 +26,6 @@ public class MainActivity extends AppCompatActivity {
     FloatingActionButton fabu;
     private ListView listviewnotes;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

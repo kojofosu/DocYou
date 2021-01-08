@@ -102,8 +102,7 @@
                     android:layout_gravity="bottom"
                     app:fabAlignmentMode="center"
                     android:backgroundTint="@color/searchbar"
-                    style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
-                    android:elevation="30dp"
+                    style="@style/Theme.MaterialComponents.DayNight"
                     app:hideOnScroll="true"
                     app:menu="@menu/bottom_appbar_menu">
                 </com.google.android.material.bottomappbar.BottomAppBar>

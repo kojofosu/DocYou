@@ -172,7 +172,7 @@ public class AddNew extends AppCompatActivity {
             }
         });
 
-        setSupportActionBar(addNewBottomAppBar);
+//        setSupportActionBar(addNewBottomAppBar);
 //        addNewBottomAppBar.setNavigationOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
