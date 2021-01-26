@@ -29,10 +29,11 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -101,14 +102,31 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mProgressView = findViewById(R.id.login_progress);
 
         mContinueWOAccButton.setOnClickListener(new OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.P)
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LoginActivity.this, FingerPrint.class));
-                finish();
-            }
+                    startActivity(new Intent(LoginActivity.this, FingerPrint.class));
+                    finish();
+                }
+
+
+
+
+                //Biometric
+//                BiometricUtils biometricUtils = new BiometricUtils();
+//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+//                    if (BiometricUtils.isBiometricPromptEnabled() && BiometricUtils.isBiometricPermissionGranted(LoginActivity.this) && BiometricUtils.isSdkVersionSupported()) {
+//                        biometricUtils.createBiometricPrompt("Scan biometric", "Use this to scan", "You wiil need to auth to continue", "Cancel");
+//                    }
+//
+//                }
+//                startActivity(new Intent(LoginActivity.this, FingerPrint.class));
+//                finish();/
+//            }
         });
 
     }
+
 
     private void populateAutoComplete() {
         if (!mayRequestContacts()) {

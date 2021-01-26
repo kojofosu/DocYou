@@ -13,7 +13,6 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 
 import android.widget.TextView;
-import android.widget.Toast;
 
 import render.animations.Attention;
 import render.animations.Render;

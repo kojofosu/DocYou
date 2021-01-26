@@ -2,7 +2,9 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AddNew">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +33,7 @@
                 android:hint="@string/hint_title"
                 android:textSize="30sp"
                 android:singleLine="true"
-                android:textColor="@color/gray"
+                android:textColor="@color/colorAccent"
                 android:background="@color/transparent"
                 android:layout_gravity="center_vertical"/>
             <!--<Button-->
@@ -102,7 +104,7 @@
                     android:layout_gravity="bottom"
                     app:fabAlignmentMode="center"
                     android:backgroundTint="@color/searchbar"
-                    style="@style/Theme.MaterialComponents.DayNight"
+                    app:elevation="20dp"
                     app:hideOnScroll="true"
                     app:menu="@menu/bottom_appbar_menu">
                 </com.google.android.material.bottomappbar.BottomAppBar>
